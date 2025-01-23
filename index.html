@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadowknight</title>
+    <link rel="icon" type="image/png" href="images/favicon.png"> <!-- Favicon link -->
+    <style>
+        body {
+            margin: 0; 
+            padding: 0; 
+            background-color: black; 
+            color: white; 
+            font-family: Arial, sans-serif; 
+            height: 100vh; 
+            display: flex; 
+            justify-content: start; /* Align boxes to the left */
+            align-items: center; /* Center boxes vertically */
+            position: relative; 
+            overflow: hidden; 
+            transition: background-image 0.5s;
+        }
+        
+        h1 {
+            position: absolute; 
+            top: 15%; 
+            left: 50%; 
+            transform: translate(-50%, -50%);
+            font-size: 48px; /* Restored font size */
+            text-shadow: 0 0 20px orange;
+            z-index: 2;
+        }
+        
+        .box {
+            border: 2px solid orange; 
+            border-radius: 15px; 
+            padding: 20px; 
+            box-shadow: 0 0 20px orange; 
+            background-color: rgba(0, 0, 0, 0.8);
+            width: 250px; 
+            height: 400px; 
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Center content vertically */
+            margin-left: 0; /* Ensure it starts at the left */
+        }
+
+        .sidebar {
+            position: absolute; /* Positioning it absolutely */
+            right: 0; /* Touching the right wall */
+            top: 50%; /* Vertically centered */
+            transform: translateY(-50%); /* Center it vertically */
+            border: 2px solid orange; 
+            border-radius: 15px; 
+            padding: 20px; 
+            box-shadow: 0 0 20px orange; 
+            background-color: rgba(0, 0, 0, 0.8);
+            width: 250px; 
+            height: 400px; 
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Center content vertically */
+        }
+
+        .middle-image {
+            position: absolute; /* Positioning the sword absolutely */
+            top: 60%; /* Move it down to 60% of the viewport height */
+            left: 50%; /* Center it horizontally */
+            transform: translate(-50%, -50%); /* Move it back to center */
+            z-index: 1; /* Ensures it's behind the title and boxes */
+            width: 200px; /* Increased width for the sword image */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        .partner-list {
+            text-align: center;
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .sidebar-link {
+            display: block; 
+            margin: 10px 0; 
+            padding: 10px;
+            text-align: center;
+            font-size: 18px;
+            color: white;
+            cursor: pointer;
+            transition: color 0.5s;
+        }
+
+        .sidebar-link:hover {
+            color: orange;
+        }
+
+        .partner-item {
+            display: flex; 
+            flex-direction: column; 
+            text-align: center;
+        }
+
+        .partner-item img {
+            width: 100%; 
+            height: auto; 
+        }
+
+        .partner-item a {
+            color: orange; 
+            text-decoration: none; 
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Center title -->
+    <h1>Shadowknight</h1>
+
+    <!-- Middle sword image -->
+    <img src="images/sword.png" alt="Sword" class="middle-image" />
+
+    <!-- Box for server and client list, positioned on the left (middle left) -->
+    <div class="box">
+        <h2 style="text-align: center;">Sigma</h2>
+        <div class="partner-list">
+            <div class="sidebar-link" onclick="window.location.href='servers.html'">Servers</div>
+            <div class="sidebar-link" onclick="window.location.href='clients.html'">Clients</div>
+            <div class="sidebar-link" onclick="window.location.href='support.html'">Support</div>
+            <div class="sidebar-link" onclick="window.location.href='download.html'">Download</div>
+        </div>
+    </div>
+
+    <!-- Sidebar for a partner, positioned on the right (middle right) -->
+    <div class="sidebar">
+        <h2>Partner</h2>
+        <div class="partner-item">
+            <img src="dddd.png" alt="abrhosting">
+            <a href="https://abrhosting.com" target="_blank">>click me<</a>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server List - Shadowknight</title>
+    <link rel="icon" type="image/png" href="images/favicon.png"> <!-- Favicon link -->
+    <style>
+        body {
+            margin: 0; 
+            padding: 0; 
+            background-color: black; 
+            color: white; 
+            font-family: Arial, sans-serif; 
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            justify-content: flex-start; /* Align items at the top */
+            min-height: 100vh;
+            overflow: auto; /* Allow scrolling for the whole page */
+        }
+
+        h1 {
+            font-size: 48px; 
+            text-shadow: 0 0 20px orange;
+            margin: 20px 0;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            gap: 20px; /* Space between buttons */
+            margin-bottom: 20px; /* Bottom margin for spacing */
+        }
+
+        .button {
+            padding: 10px 15px; 
+            border: 1px solid orange; 
+            border-radius: 5px; 
+            background-color: orange; 
+            color: black; 
+            cursor: pointer; 
+            text-decoration: none; 
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .button:hover {
+            background-color: darkorange; 
+            color: white;
+        }
+
+        .server-list {
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 2px solid orange; 
+            border-radius: 15px; 
+            padding: 20px; 
+            box-shadow: 0 0 20px orange;
+            max-width: 600px; 
+            width: 90%; 
+            text-align: center;
+            margin: 20px auto; /* Center the server list and add margin */
+        }
+
+        .server-item {
+            margin: 15px 0; 
+            padding: 15px; 
+            border: 1px solid orange; 
+            border-radius: 10px; 
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: background 0.3s;
+        }
+
+        .server-item:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .server-status {
+            font-size: 16px; 
+            margin: 5px 0; 
+        }
+
+        .online {
+            color: green;
+        }
+
+        .offline {
+            color: red;
+        }
+
+        .copy-button {
+            margin-top: 10px; 
+            padding: 10px 15px; 
+            border: 1px solid orange; 
+            border-radius: 5px; 
+            background-color: orange; 
+            color: black; 
+            cursor: pointer; 
+            text-decoration: none; 
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .copy-button:hover {
+            background-color: darkorange; 
+            color: white;
+        }
+
+        /* Smaller screen adjustments */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation buttons with Back button -->
+    <div class="navigation-buttons">
+        <button class="button" onclick="window.location.href='index.html'">Back</button>
+        <button class="button" onclick="refreshServers()">Refresh</button> <!-- Updated button -->
+    </div>
+
+    <h1>Server List</h1>
+
+    <div class="server-list" id="server-list">
+        <!-- Server Items will be injected here by JavaScript -->
+    </div>
+
+    <script>
+        // Server data with descriptions
+        const servers = [
+            {
+                name: 'Zentic',
+                websocket: 'wss://zentic.cc',
+                description: 'Very good pvp server tbh'
+            },
+            {
+                name: 'ArchMC',
+                websocket: 'wss://mc.arch.lol',
+                description: 'One very overated server and very laggy it also have 8 gamemodes'
+            },
+            {
+                name: 'VanillaCraft',
+                websocket: 'wss://vanillamc.tech',
+                description: 'It use the be vanilla :( '
+            }
+        ];
+
+        // Function to check WebSocket status
+        async function checkWebSocketStatus(url) {
+            return new Promise((resolve) => {
+                const socket = new WebSocket(url);
+                socket.onopen = () => {
+                    socket.close();
+                    resolve(true); // Online
+                };
+                socket.onerror = () => {
+                    resolve(false); // Offline
+                };
+                // Setting a timeout to avoid hanging connection attempts
+                setTimeout(() => {
+                    resolve(false);
+                    socket.close();
+                }, 5000); // Timeout after 5 seconds
+            });
+        }
+
+        // Function to render servers
+        async function displayServers() {
+            const serverList = document.getElementById('server-list');
+            serverList.innerHTML = ''; // Clear current list
+            for (const server of servers) {
+                const isOnline = await checkWebSocketStatus(server.websocket);
+                
+                const serverItem = document.createElement('div');
+                serverItem.classList.add('server-item');
+
+                const serverName = document.createElement('h2');
+                serverName.innerText = server.name;
+
+                const serverDescription = document.createElement('p');
+                serverDescription.innerText = server.description;
+
+                const serverStatus = document.createElement('p');
+                serverStatus.classList.add('server-status');
+                serverStatus.innerText = `Status: `;
+                const statusSpan = document.createElement('span');
+                statusSpan.innerText = isOnline ? 'Online' : 'Offline';
+                statusSpan.classList.add(isOnline ? 'online' : 'offline');
+                serverStatus.appendChild(statusSpan);
+                
+                const copyButton = document.createElement('button');
+                copyButton.classList.add('copy-button');
+                copyButton.innerText = 'Copy';
+                copyButton.onclick = () => {
+                    navigator.clipboard.writeText(server.websocket).then(() => {
+                        alert('copied to clipboard!');
+                    });
+                };
+
+                serverItem.appendChild(serverName);
+                serverItem.appendChild(serverDescription);
+                serverItem.appendChild(serverStatus);
+                serverItem.appendChild(copyButton);
+                serverList.appendChild(serverItem);
+            }
+        }
+
+        // Function to refresh the server list status
+        function refreshServers() {
+            displayServers();
+        }
+
+        // Call the function to display servers on page load
+        displayServers();
+    </script>
+
+</body>
+</html>

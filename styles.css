@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Global Styles */
+body {
+    background-color: black; /* Full-screen black background */
+    font-family: Arial, sans-serif; /* Font family for text */
+    color: white; /* Default text color */
+    height: 100vh; /* Full height of the viewport */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Header Styles */
+header {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    width: 100%; /* Full width */
+    padding: 10px 0; /* Padding for the header */
+    text-align: center; /* Center the title */
+}
+
+/* Button Container Styles */
+.button-container {
+    display: flex;
+    flex-direction: column; /* Stack the button rows vertically */
+    align-items: center; /* Center-align button rows */
+}
+
+/* Button Row Styles */
+.button-row {
+    display: flex; /* Use flexbox for each row */
+    justify-content: center; /* Center the buttons */
+    margin: 10px 0; /* Vertical spacing between button rows */
+}
+
+/* Button Styles */
+button {
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent button */
+    color: white; /* Button text color */
+    border: none; /* Remove default border */
+    padding: 10px 20px; /* Padding for buttons */
+    margin: 0 10px; /* Horizontal spacing between buttons */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for hover */
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 0.5); /* Change background on hover */
+}

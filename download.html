@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client | Download</title>
+    <link rel="icon" type="image/png" href="images/favicon.png"> <!-- Favicon link -->
+    <style>
+        body {
+            margin: 0; 
+            padding: 0; 
+            background-color: black; 
+            color: white; 
+            font-family: Arial, sans-serif; 
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            justify-content: flex-start; 
+            min-height: 100vh;
+            overflow: auto; 
+        }
+
+        h1 {
+            font-size: 48px; 
+            text-shadow: 0 0 20px orange;
+            margin: 20px 0;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            gap: 20px; 
+            margin-bottom: 20px; 
+        }
+
+        .button {
+            padding: 10px 15px; 
+            border: 1px solid orange; 
+            border-radius: 5px; 
+            background-color: orange; 
+            color: black; 
+            cursor: pointer; 
+            text-decoration: none; 
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .button:hover {
+            background-color: darkorange; 
+            color: white;
+        }
+
+        .client-downloads {
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 15px; 
+            padding: 20px; 
+            box-shadow: 0 0 20px orange;
+            max-width: 600px; 
+            width: 90%; 
+            text-align: center;
+            margin: 20px auto; 
+        }
+
+        .client-item {
+            margin: 15px 0; 
+            padding: 15px; 
+            border-radius: 10px; 
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: background 0.3s;
+        }
+
+        .client-item:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .download-button {
+            margin-top: 10px; 
+            padding: 10px 15px; 
+            border: 1px solid orange; 
+            border-radius: 5px; 
+            background-color: orange; 
+            color: black; 
+            cursor: pointer; 
+            text-decoration: none; 
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .download-button:hover {
+            background-color: darkorange; 
+            color: white;
+        }
+
+        /* Smaller screen adjustments */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation buttons with Back button -->
+    <div class="navigation-buttons">
+        <button class="button" onclick="window.location.href='index.html'">Back</button>
+    </div>
+
+    <h1>Client Downloads</h1>
+
+    <div class="client-downloads">
+        <div class="client-item">
+            <h2>Resent</h2>
+            <p>Good pvp client</p>
+            <a href="resent/resent-4.0.html" class="download-button" download>Download</a>
+        </div>
+
+        <div class="client-item">
+            <h2>EaglercraftX</h2>
+            <p>Just the regular client the og the original</p>
+            <a href="downloads/EaglercraftX_1.8_Offline_International.html" class="download-button" download>Download</a>
+        </div>
+
+        <div class="client-item">
+            <h2>Sigma</h2>
+            <p>Brainrot client</p>
+            <a href="sigma.html" class="download-button" download>Download</a>
+        </div>
+
+        <div class="client-item">
+            <h2>Coming Soon</h2>
+            <p>More clients coming soon.</p>
+            <a href="#" class="download-button" style="cursor: not-allowed; background-color: gray; border-color: gray;">More Coming Soon</a>
+        </div>
+    </div>
+
+</body>
+</html>

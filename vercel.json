@@ -1,0 +1,24 @@
+{
+    "rewrites": [
+      {
+        "source": "/",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/servers",
+        "destination": "/servers.html"
+      },
+      {
+        "source": "/clients",
+        "destination": "/clients.html"
+      },
+      {
+        "source": "/support",
+        "destination": "/support.html"
+      },
+      {
+        "source": "/download",
+        "destination": "/download.html"
+      }
+    ]
+  }

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client List</title>
+    <link rel="icon" type="image/png" href="images/favicon.png"> <!-- Favicon link -->
+    <style>
+        body {
+            margin: 0; 
+            padding: 0; 
+            background-color: black; 
+            color: white; 
+            font-family: Arial, sans-serif; 
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            justify-content: flex-start; /* Align items at the top */
+            min-height: 100vh;
+            overflow: auto; /* Allow scrolling for the whole page */
+        }
+
+        h1 {
+            font-size: 48px; 
+            text-shadow: 0 0 20px orange;
+            margin: 20px 0;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            gap: 20px; /* Space between buttons */
+            margin-bottom: 20px; /* Bottom margin for spacing */
+        }
+
+        .button {
+            padding: 10px 15px; 
+            border: 1px solid orange; 
+            border-radius: 5px; 
+            background-color: orange; 
+            color: black; 
+            cursor: pointer; 
+            text-decoration: none; 
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .button:hover {
+            background-color: darkorange; 
+            color: white;
+        }
+
+        .client-list {
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 15px; 
+            padding: 20px; 
+            box-shadow: 0 0 20px orange;
+            max-width: 600px; 
+            width: 90%; 
+            text-align: center;
+            margin: 20px auto; /* Center the client list and add margin */
+        }
+
+        .client-item {
+            margin: 15px 0; 
+            padding: 15px; 
+            border-radius: 10px; 
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: background 0.3s;
+        }
+
+        .client-item:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .play-button {
+            margin-top: 10px; 
+            padding: 10px 15px; 
+            border: 1px solid orange; 
+            border-radius: 5px; 
+            background-color: orange; 
+            color: black; 
+            cursor: pointer; 
+            transition: background 0.3s, color 0.3s;
+            text-decoration: none; /* No underline for the anchor tag */
+        }
+
+        .play-button:hover {
+            background-color: darkorange; 
+            color: white;
+        }
+
+        /* Smaller screen adjustments */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation buttons with Back button -->
+    <div class="navigation-buttons">
+        <button class="button" onclick="window.location.href='index.html'">Back</button>
+    </div>
+
+    <h1>Client List</h1>
+
+    <div class="client-list">
+        <div class="client-item">
+            <h2>Resent</h2>
+            <p>Resent Client.</p>
+            <a href="resent/resent-4.0.html" class="play-button">Play</a>
+        </div>
+
+        <div class="client-item">
+            <h2>EaglercraftX</h2>
+            <p>EaglercraftX The og client you should no this already</p>
+            <a href="EaglercraftX_1.8_Offline_International.html" class="play-button">Play</a>
+        </div>
+
+        <div class="client-item">
+            <h2>Simgaclient</h2>
+            <p>Brainrot client</p>
+            <a href="sigl" class="play-button">Play</a>
+        </div>
+
+        <div class="client-item">
+            <h2>Eaglymc</h2>
+            <p>Eaglymc 1.20 wasm version singleplayer only </p>
+            <a href="eaglymc/index.html" class="play-button">Play</a>
+        </div>
+
+        <div class="client-item">
+            <h2>AstraClient</h2>
+            <p>Wasm only us if you have good cpu and memory reason becuase it wasm also it gives good fps</p>
+            <a href="astra/astraclient_wasm.html" class="play-button">Play</a>
+        </div>
+        <div class="client-item">
+            <h2>AstraClient-Main</h2>
+            <p>A fun and good client and dont worry this is not wasm</p>
+            <a href="astra/astraclient.html" class="play-button">Play</a>
+        </div>
+        <div class="client-item">
+            <h2>Coming Soon</h2>
+            <p>More clients coming soon.</p>
+            <a href="#" class="play-button">Play</a>
+        </div>
+    </div>
+
+</body>
+</html>

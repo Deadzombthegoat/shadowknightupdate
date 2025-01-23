@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support</title>
+    <link rel="icon" type="image/png" href="images/favicon.png"> <!-- Favicon link -->
+    <style>
+        body {
+            margin: 0; 
+            padding: 0; 
+            background-color: black; 
+            color: white; 
+            font-family: Arial, sans-serif; 
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            justify-content: flex-start; 
+            min-height: 100vh;
+            overflow: auto; 
+        }
+
+        h1 {
+            font-size: 48px; 
+            text-shadow: 0 0 20px orange;
+            margin: 20px 0;
+        }
+
+        .button {
+            padding: 10px 15px; 
+            border: 1px solid orange; 
+            border-radius: 5px; 
+            background-color: orange; 
+            color: black; 
+            cursor: pointer; 
+            text-decoration: none; 
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .button:hover {
+            background-color: darkorange; 
+            color: white;
+        }
+
+        /* Smaller screen adjustments */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation buttons with Back button -->
+    <div style="display: flex; justify-content: center;">
+        <button class="button" onclick="window.location.href='index.html'">Back</button>
+    </div>
+
+    <h1>Support</h1>
+
+    <p>Need help with something or have a question? Join our Discord server for support!</p>
+
+    <a href="https://discord.gg/V2revUqAd3" class="button" target="_blank" rel="noopener noreferrer">Join Discord Server</a>
+
+</body>
+</html>
